@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1701607583 source:c:\users\mayra\onedrive\Área de trabalho\projetos em c\trabalho final lp1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	<limits.h>
+	<time.h>
+
+1701644960 source:c:\users\xnico\downloads\trabalho final lp1\trabalho final lp1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	<limits.h>
+	<time.h>
+	"funcoes.h"
+
+1701633885 c:\users\xnico\downloads\trabalho final lp1\trabalho final lp1\funcoes.h
+
