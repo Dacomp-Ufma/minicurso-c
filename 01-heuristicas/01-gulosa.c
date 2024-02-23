@@ -5,85 +5,89 @@
 #define TRUE 1
 #define FALSE 0
 
-#define N_ACOES 8
+//Número de Ações +1, pois o Vetor da Carteira deverá conter o Lucro na posição 0
+#define N_ACOES 8             
 
-typedef struct _investimentos_{
-    unsigned int quantidade;
-    int lucros[ N_ACOES ];
-    int custos[ N_ACOES ];
-} Investimentos;
-
-void print_investimentos( Investimentos* investimentos ){
-    int i = 0;
-    int total_custo = 0, total_lucro = 0;
-
-    printf( "-\tInvestimento\tLucro\n" );
-    while( i < N_ACOES && investimentos->lucros[ i ] != NULL ){
-        printf( "-\t%d\t\t%d\t\n", investimentos->custos[ i ], investimentos->lucros[ i ] );
-        total_custo += investimentos->custos[ i ];
-        total_lucro += investimentos->lucros[ i ];
-        i++;
+//Função para imprimir nosso vetor de carteira
+void print_investimentos(int carteira[]){
+    printf("# GULOSA LUCRO #");
+    printf("\nAs acoes escolhidas foram: ");
+    for(int i=1; i<N_ACOES; i++){
+        if( carteira[i] != -1){
+            printf("%d ",carteira[i]);
+        }
     }
-    printf( "Total\t%d\t\t%d\t\n", total_custo, total_lucro );
+
+    printf("\nLucro: %d", carteira[0]);
+
 }
 
-Investimentos constroi_melhor( int* caixa, Investimentos acoes ){
+// Função para preencher os vetores com valores de -1, sera "Zerá-los" para nosso caso em que trabalho com apenas valores positivos
+void preenche_vetor(int vetor[], int legth){
+    for(int i=0; i<legth; i++){
+        vetor[i] = -1;
+    }
+}
 
-    Investimentos carteira = {
-        0,
-        { NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL },
-        { 0, 0, 0, 0, 0, 0, 0, 0 }
-    };
+// Função que deverá escolher as ações de acordo com a Heurística escolhida
+int escolhe_acoes_lucro(int caixa, int lucros[], int custos[], int carteira[]){
+    // Primerio índice da cartera zerado, pois conterá o lucro
+    carteira[0] = 0;
+   
+    //Variável que vai armazenar o índice da melhor ação
+    int indice_melhor_acao = 0;
+    
+    // Encontrar o melhor Lucro e adicioná-lo/comprá-lo se tiver caixa suficiente
+    for ( int indx_carteira = 1; indx_carteira < N_ACOES; indx_carteira++){
+        // Supomos sempre o primeiro lucro como melhor
+        int melhor_lucro = lucros[0];
 
-    unsigned int melhor_idx;
-    int melhor[ 2 ];
-
-    unsigned int inicio = 0, i;
-
-    while ( inicio < N_ACOES ){
-
-        // Achar o melhor candidato pelo maior valor
-        melhor[ 0 ] = INT32_MIN; // Lucro
-        melhor[ 1 ] = INT32_MAX; // Custo
-        for ( i = inicio; i < N_ACOES; i++ ){
-            if ( acoes.lucros[ i ] > melhor[ 0 ] ){
-                melhor[ 0 ] = acoes.lucros[ i ];
-                melhor[ 1 ] = acoes.custos[ i ];
-                melhor_idx = i;
+        //Verificamos se existe algum lucro maior que ele, se existir, este será o novo maior lucro e guardamos seu índice
+        for ( int i = 0; i < N_ACOES-1; i++ ){
+            if (lucros[i] > melhor_lucro){
+                indice_melhor_acao = i;
+                melhor_lucro = lucros[i];
             }
         }
 
-        // Se couber na carteira de investimentos, adicionar melhor candidato
-        if ( (*caixa) - melhor[ 1 ] >= 0 ){
-            carteira.lucros[ carteira.quantidade ] = melhor[ 0 ];
-            carteira.custos[ carteira.quantidade ] = melhor[ 1 ];
-            carteira.quantidade++;
-            (*caixa) -= melhor[ 1 ];
+        // Se couber na carteira de investimentos, adicionar melhor lucro e retirar o seu custo da carteira
+        if ( caixa - custos[indice_melhor_acao] >= 0 ){
+            //Adicionando o valor do respectivo lucro ao lucro total
+            carteira[0] += lucros[indice_melhor_acao];
+            //Guardamos o índice da ação que compramos
+            carteira[indx_carteira] = indice_melhor_acao;
+            //Reduzimos o nosso caixa do respectivo custo da ação
+            caixa -= custos[indice_melhor_acao];
+            //Aqui "apagamos" o lucro já utilizado, transformando-o em -1
+            lucros[indice_melhor_acao] = -1;
         }
 
-        // Atualizar candidatos
-        acoes.lucros[ melhor_idx ] = acoes.lucros[ inicio ];
-        acoes.custos[ melhor_idx ] = acoes.custos[ inicio ];
-        acoes.lucros[ inicio ] = melhor[ 0 ];
-        acoes.custos[ inicio ] = melhor[ 1 ];
-        inicio++;
     }
-    
-    return carteira;
+
+    //Retornamos o valor de caixa atualizado
+    return caixa;
+
 }
 
-int main(){
 
+//Função main :)
+int main(int argc, char const *argv[]){
+    //Quanto de dinheito temos em caixa
     int caixa = 100;
-    Investimentos acoes = {
-        N_ACOES,
-        { 41, 33, 14, 25, 32, 32, 9, 19 },
-        { 47, 40, 17, 27, 34, 23, 5, 44 }
-    };
+    
+    //Vetor carteira a ser preenchido com o índice da ação comprada
+    int carteira[N_ACOES] = {};
 
-    Investimentos resposta = constroi_melhor( &caixa, acoes );
-    print_investimentos( &resposta );
-    printf( "Valor em caixa: %d\n", caixa );
+    preenche_vetor(carteira, N_ACOES);
+
+    //Nossos vetores de lucro e custo
+    int lucro[N_ACOES-1]  = {70, 20, 29, 37, 7, 5, 10};
+    int custo[N_ACOES-1]  = {31, 21, 20, 19, 4, 3, 6 };
+    
+    //Chamamos a função atualizando o valor de caixa
+    caixa = escolhe_acoes_lucro(caixa, lucro, custo, carteira);
+    print_investimentos(carteira);
+    printf( "\nValor em caixa: %d\n", caixa );
 
     return 0;
 }
