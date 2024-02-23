@@ -9,7 +9,7 @@
 //Número de Ações +1, pois o Vetor da Carteira deverá conter o Lucro na posição 0
 #define N_ACOES 8           
 
-//Função para imprimir nossos vetores de carteira
+//Função para imprimir nossas ações da carteira
 void print_investimentos(int carteira[]){
     printf("# RANDOMICA #");
     printf("\nLucro: %d", carteira[0]);
@@ -29,7 +29,7 @@ void preenche_vetor(int vetor[], int legth){
     }
 }
 
-// Função que deverá escolher as ações de acordo com a Heurística escolhiida
+// Função que deverá escolher as ações de acordo com a Heurística escolhida
 int escolhe_acoes_randomica(int caixa, int lucros[], int custos[], int carteira[]){
     // Primerio índice da cartera zerado, pois conterá o lucro
     carteira[0] = 0;
