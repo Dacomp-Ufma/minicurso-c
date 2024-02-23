@@ -53,7 +53,7 @@ int escolhe_acoes_randomica(int caixa, int lucros[], int custos[], int carteira[
         // Supomos que o vetor esteja cheio, para verficarmos se está realmente cheio 
         cheio = TRUE;
         for(int i=0; i<N_ACOES; i++){
-            // Se encontrarmos pelo menos um -1, então o vetor não está vazio, por isso a variável volta a ser FALSE
+            // Se encontrarmos pelo menos um -1, então o vetor não está cheio, por isso a variável volta a ser FALSE
             if(idx_sorteados[i] == -1){
                 cheio = FALSE;
             }
