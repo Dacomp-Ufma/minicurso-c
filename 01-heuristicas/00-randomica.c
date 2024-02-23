@@ -30,7 +30,7 @@ void preenche_vetor(int vetor[], int legth){
 }
 
 // Função que deverá escolher as ações de acordo com a Heurística escolhiida
-int escolhe_acoes_razao(int caixa, int lucros[], int custos[], int carteira[]){
+int escolhe_acoes_randomica(int caixa, int lucros[], int custos[], int carteira[]){
     // Primerio índice da cartera zerado, pois conterá o lucro
     carteira[0] = 0;
     // Índice para iterar sobre o vetor "carteira", começando de 1, pois a posção 0 é o lucro
@@ -94,6 +94,7 @@ int escolhe_acoes_razao(int caixa, int lucros[], int custos[], int carteira[]){
     
     }
 
+
     //Retornamos a quantidade restante de caixa, uma vez que seus valores são modificados
     return caixa;
 
@@ -117,7 +118,7 @@ int main(int argc, char const *argv[]){
     int custo[N_ACOES-1]  = {31, 21, 20, 19, 4, 3, 6 };
     
     //Chamamos a função atualizando o valor de caixa
-    caixa = escolhe_acoes_razao(caixa, lucro, custo, carteira);
+    caixa = escolhe_acoes_randomica(caixa, lucro, custo, carteira);
     print_investimentos(carteira);
     printf( "\nValor em caixa: %d\n", caixa );
 
