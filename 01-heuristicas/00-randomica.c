@@ -22,7 +22,7 @@ void print_investimentos(int carteira[]){
     }
 }
 
-// Função para preencher os vetores com valores de -1, sera "Zerá-los" para nosso caso em que trabalho com apenas valores positivos
+// Função para preencher os vetores com valores de -1, seria como "Zerá-los" para nosso caso em que trabalho com apenas valores positivos
 void preenche_vetor(int vetor[], int legth){
     for(int i=0; i<legth; i++){
         vetor[i] = -1;
@@ -59,7 +59,7 @@ int escolhe_acoes_randomica(int caixa, int lucros[], int custos[], int carteira[
             }
         }
         
-        // Sorteia o índice. rand() gera um número aleatório entre 0 e constante RAND_MAX. Aplicamos o operador % sobre a quantidade de ações
+        //Sorteia o índice. rand() gera um número aleatório entre 0 e constante RAND_MAX. Aplicamos o operador % sobre a quantidade de ações
         indice_randomico = rand() % N_ACOES-1;
 
         // Variável de controle para verificarmos se sorteamos um índice já sorteado
