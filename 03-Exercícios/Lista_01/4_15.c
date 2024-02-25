@@ -1,5 +1,11 @@
 #include<stdio.h>
 #include<stdlib.h>
+
+/*
+Crie um programa em C para contabilizar a quantidade de elementos repetidos em um vetor
+de inteiros, lido do teclado.
+*/
+
 int TemnoVetor(int *Array, int n , int elemento){
   int cont=0;
 
@@ -12,7 +18,7 @@ int TemnoVetor(int *Array, int n , int elemento){
 }
 
 void qtdRepetidos(int n){
-  int *vetor=(int*)malloc(sizeof(int)*n);
+  int vetor[ n ];
   for(int i=0;i<n;i++){
     scanf("%d", &vetor[i]);
   }

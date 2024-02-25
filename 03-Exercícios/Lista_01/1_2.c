@@ -1,4 +1,10 @@
 #include <stdio.h>
+
+/*
+Escreva um programa em C para verificar se um determinado número de entrada
+é par ou ímpar.
+*/
+
 int main()
 {
     int numero;

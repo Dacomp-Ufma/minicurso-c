@@ -1,5 +1,14 @@
 #include <stdio.h>
 
+/*
+O que é mostrado no seguinte programa em C?
+
+a) Todos os elementos únicos em arr1
+b) Todos os elementos duplicados em arr1
+c) A frequência de cada elemento em arr1
+d) Número de elementos fora da coluna principal
+*/
+
 int main(){
 
     int arr1[] = {1,2,2,1,3,4,5,6,5,6};
@@ -24,7 +33,7 @@ int main(){
 }
 
 
-//resposta: Todos os elementos únicos em arr1
+// resposta: Todos os elementos únicos em arr1
 // para cada posição do vetor o segundo "for" busca todos os elementos que são iguais ao elemento daquela
 // posição i, tirando o proprio elemento da posição i (i != j), caso o contador permaneça zerado podemos
 // considerar o elemento da posição i como único no vetor

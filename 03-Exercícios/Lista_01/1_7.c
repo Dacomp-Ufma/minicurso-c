@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+/*
+Utilizando o comando ’switch’, crie um programa no qual o usuário entre com uma letra (cor-
+respondendo a uma vitamina), por ex.: a,b,c,d... Em seguida, de acordo com a opção entrada,
+o programa deverá mostrar na tela informações sobre a vitamina de entrada.
+*/
+
 int main()
 {
     char vitamina;

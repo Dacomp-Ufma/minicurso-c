@@ -1,4 +1,13 @@
 #include <stdio.h>
+/*
+Qual será a saída do seguinte programa em C?
+
+a) Oi esse eh o if
+b) Não mostra nada
+c) erro de compilação
+d) Oi esse eh o else
+*/
+
 int x = 0;
 int main()
 {

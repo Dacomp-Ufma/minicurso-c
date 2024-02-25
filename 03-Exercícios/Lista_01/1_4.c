@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+/*
+Escreva um programa em C para encontrar o maior de três números dados por entrada.
+*/
+
 int main()
 {
     int num1, num2, num3, maior;

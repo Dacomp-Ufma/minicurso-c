@@ -1,5 +1,18 @@
 #include <stdio.h>
 
+/*
+Dado um array de n − 1 inteiros distintos no intervalo de 1 a n, crie um programa em C que
+encontre o número que falta nele.
+
+Exemplo:
+
+Considerando o array arr = {1, 2, 3, 4, 5, 7, 8, 9, 10} cujos elementos são distintos e estão no
+intervalo de 1 a 10. O número que falta é o 6.
+
+Implemente a função:
+int missing_number(arr[], int n);
+*/
+
 int missing_number(int arr[], int n);
 int missing_number_Busca_binaria(int arr[], int n);
 

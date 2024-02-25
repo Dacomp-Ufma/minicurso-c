@@ -1,3 +1,17 @@
+#include <stdio.h>
+
+/*
+Escreva um programa em C para reorganizar um dado array na seguinte ordem: menor, maior,
+2o menor, 2o maior, 3o menor, 3o maior e assim por diante.
+
+Exemplo:
+> O array de entrada é:
+5 8 1 4 2 9 3 7 6
+
+> O novo array é:
+1 9 2 8 3 7 4 6 5
+*/
+
 int* ordenaVetor(int *Array, int n){
   int menor=0,copia;
   for (int i = 0; i < n; i++) {
@@ -14,8 +28,7 @@ int* ordenaVetor(int *Array, int n){
   return Array;
 }
 
-// 4.6
-void Questao46(int *Array, int n) {
+void reordena(int *Array, int n) {
   int copia, menor = 0, meio;
   // Ordenar o vetor
   Array=ordenaVetor(Array, n);
@@ -49,7 +62,12 @@ void Questao46(int *Array, int n) {
   }
 }
 
-
 int main(){
-  
+
+  int tamanho_array = 9;
+  int array[] = { 5, 8, 1, 4, 2, 9, 3, 7, 6 };
+
+  reordena( array, tamanho_array );
+
+  return 0;
 }

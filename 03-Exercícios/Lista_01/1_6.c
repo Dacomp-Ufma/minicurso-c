@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/*
+Escreva um programa em C para converter dias específicos em anos, semanas e dias.
+obs: Ignore o ano bissexto.
+*/
+
 int main()
 {
     int total_dias, anos, semanas, dias;

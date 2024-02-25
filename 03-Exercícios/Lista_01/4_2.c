@@ -1,5 +1,15 @@
 #include <stdio.h>
 
+/*
+Dado um array de tamanho n, encontre o elemento majoritário. O elemento majoritário é o
+elemento que aparece mais de b(n/2)c vezes. Você pode assumir que o array não está vazio e
+que o elemento majoritário sempre existe no array.
+
+Exemplo:
+Entrada: [2, 1, 2]
+Retorno: 2 que ocorre 2 vezes que é maior que 3/2.
+*/
+
 int elementoMajoritario(int lista[], int n);
 
 int main() {

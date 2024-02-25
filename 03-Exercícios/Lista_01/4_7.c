@@ -1,5 +1,13 @@
 #include <stdio.h>
 
+/*
+Escreva um programa para encontrar o maior sub-vetor com número igual de 0s e 1s.
+
+ex.:
+vetor : 0 1 0 0 1 1 0 1 1 1
+saída: sub-vetor encontrado do índice 0 ao 7
+*/
+
 int main(){
 
     int vetor[] = {0, 1, 0, 0, 1, 1, 0, 1, 1, 1};
