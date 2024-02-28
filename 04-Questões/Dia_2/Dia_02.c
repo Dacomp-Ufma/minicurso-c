@@ -4,6 +4,25 @@
 #define TRUE 1
 #define FALSE 0
 
+int calcula_numero_de_digitos(int n){
+    int n_digitos = 1;
+
+    while (n / 10 != 0)
+    {
+        n_digitos++;          // n_digitos += 1    n_digitos = n_digitos + 1
+        n = n / 10; // number/=10
+    }
+
+    return n_digitos;
+}
+
+
+float calcula_distancia_entre_dois_pontos_no_plano(float p1x, int p1y, int p2x, int p2y){
+        //CALCULA A DISTANCIA COM A EXPRESSAO E RETORNA ESSE VALOR
+}
+
+
+
 int main(int argc, char const *argv[])
 {
 
@@ -85,32 +104,28 @@ int main(int argc, char const *argv[])
 
     // 2.1 ORDEM INVERSA
 
+    //SEPARAR EM UMA FUNCAO À PARTE
     int number;
     printf("Digite um numero: ");
     scanf("%d", &number);
 
-    int n_digitos = 1;
+    int number_digitos = calcula_numero_de_digitos(number);
+    
     int new_number = number;
     int new_new_number = number;
 
-    while (number / 10 != 0)
-    {
-        n_digitos++;          // n_digitos += 1    n_digitos = n_digitos + 1
-        number = number / 10; // number/=10
-    }
-
-    printf("O numero de digitos eh: %d\n", n_digitos);
+    printf("O numero de digitos eh: %d\n", number_digitos);
 
     float inverse_number = 0;
     int resto = 0;
-    int n_vezes = n_digitos;
+    int n_vezes = number_digitos;
 
     for (int i = 0; i < n_vezes; i++)
     {
         resto = new_number % 10;
         new_number = new_number / 10;
-        inverse_number += resto * pow(10, n_digitos - 1);
-        n_digitos--;
+        inverse_number += resto * pow(10, number_digitos - 1);
+        number_digitos--;
     }
 
     int int_inverse_number = (int)(inverse_number);
@@ -127,6 +142,7 @@ int main(int argc, char const *argv[])
     {
         printf("O numero nao eh palindromo\n");
     }
+
 
     return 0;
 }
