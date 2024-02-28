@@ -38,12 +38,12 @@ int main(int argc, char const *argv[]){
   */
 
  
+  /*
   // CONDICIONAIS
   int A = 10;
   int B = 3;
   int C = 5;
 
-  /*
   if (A != B) {
     printf("%d eh diferente de %d", A, B);
   } else{
@@ -72,7 +72,6 @@ int main(int argc, char const *argv[]){
     printf("Entao eles sao DIFERENTES");
   }
 
-  */
   switch(A){
     case 1:
       {
@@ -98,8 +97,44 @@ int main(int argc, char const *argv[]){
 
   }
 
-    
-    
+  */
+
+  //Atividades Aula 01
+ //1.2
+ /*
+  int number;
+  printf("Digite um numero: ");
+  scanf("%d", &number);
+  
+  // % -> O resto da da divisao de a por b  a%b
+
+  if( number%2 == 0){
+      printf("O numero %d eh PAR", number);
+  } else{
+      printf("O numero %d eh IMPAR", number);
+  }
+ */
+
+  /*
+  //1.6
+  int dias_totais;
+  int ano, meses, semanas;
+ 
+  printf("Digite um numero de dias valido: ");
+  scanf("%d", &dias_totais);
+
+  ano = dias_totais/365;
+  dias_totais = dias_totais%365;
+
+  meses = dias_totais/30;
+  dias_totais = dias_totais%30;
+
+  semanas = dias_totais/7;
+  dias_totais = dias_totais%7;
+
+  printf("A quantidade de dias equivale a: %d anos, %d meses, %d semana(s), %d dias", ano, meses, semanas, dias_totais);
+
+  */
 
     return 0;
 }
