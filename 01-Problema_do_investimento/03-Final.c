@@ -13,7 +13,7 @@ void zerar_carteira(int vetor[])
     }
 }
 
-void imprimir_vetor(int vetor[])
+void imprimir_carteira(int vetor[])
 {
     printf("[ ");
     for (int i = 0; i < N_ACOES; i++)
@@ -23,18 +23,23 @@ void imprimir_vetor(int vetor[])
     printf("]");
 }
 
+float escolhe_melhores_acoes(float caixa, int carteira[], float lucros[], float custos[])
+{
+    return 0;
+}
+
 int main(int argc, char const *argv[])
 {
-    int Caixa = 77;
-    int Lucros[N_ACOES] = {70, 20, 29, 37, 7, 5, 10};
-    int Custos[N_ACOES] = {31, 21, 20, 19, 4, 3, 6};
+    float Caixa = 77;
+    float Lucros[N_ACOES] = {70, 20, 29, 37, 7, 5, 10};
+    float Custos[N_ACOES] = {31, 21, 20, 19, 4, 3, 6};
 
-    int Razao[N_ACOES] = {};
+    float Razao[N_ACOES] = {};
 
     // Na carteira armazenaremos os indices das acoes que vamos comprar
-    int carteira[N_ACOES] = {};
-    zerar_carteira(carteira);
-    imprimir_vetor(carteira);
+    int Carteira[N_ACOES] = {};
+    zerar_carteira(Carteira);
+    imprimir_carteira(Carteira);
 
     /*
     Possiveis formas de resolver:
@@ -44,7 +49,7 @@ int main(int argc, char const *argv[])
     [RANDOMICA] -> Escolher uma acao aleatoriamente e verificar se é possivel comprar
     */
 
-    escolhe_melhores_acoes(Caixa, carteira, Razao, Custos);
+    escolhe_melhores_acoes(Caixa, Carteira, Razao, Custos);
 
     return 0;
 }
