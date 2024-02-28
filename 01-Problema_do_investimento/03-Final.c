@@ -36,6 +36,14 @@ int main(int argc, char const *argv[])
     zerar_carteira(carteira);
     imprimir_vetor(carteira);
 
+    /*
+    Possiveis formas de resolver:
+    [LUCRO] -> Analisar apenas pelo maior Lucro e seguir testando se é possível comprar essa ação
+    [RAZAO] -> Criar um vetor Razao, armazenando a razao entre Lucro/Custo e depois comprar as ações
+    pelas maiores razões disponíveis, sempre verificando logo após se é possível comprar
+    [RANDOMICA] -> Escolher uma acao aleatoriamente e verificar se é possivel comprar
+    */
+
     escolhe_melhores_acoes(Caixa, carteira, Razao, Custos);
 
     return 0;
